@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Wishlist</title>
+<style>
+    body {
+      font-family: Helvetica, sans-serif;
+    }
+</style>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <script>
+        swal({
+            title: 'Username taken',
+            text: "Try unique username",
+            icon: 'warning',
+            button: "Try again",
+        }).then((value) => {
+            window.location.href = "/register";
+        });
+    </script>
+{% endblock %}

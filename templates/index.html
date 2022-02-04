@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<title>Wishlist</title>
+<script src="static/css/app.js"></script>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="main">
+    
+
+
+
+ <div class="container"> 
+
+    <form class="inptfrm" action="/", method="POST">
+        <h4 style="background-color: white;">Paste url here</h4>
+        <input type="url" name="content" class="question"required>
+        <label for="nme"><span>Paste link here to add to list</span></label>  
+        <input type="submit" class="btn btn-primary" value="Add item"><br>
+        <span class="lines">
+        <h6 style="background-color: white;">Automatic-data entry websites:<br></b>{{wsr}}</h6>
+        </span>
+
+        
+
+        <!-- <input type="text" id="sea" style="border:1px solid black;border-radius: 2px;font-size: medium;font-family: sans-serif;" placeholder="Search Here"> -->
+
+        <br>
+    </form>
+</div>
+
+<!-- search box -->
+
+<!-- <div class="input-group">
+    <input type="search" id="sea" class="form-control rounded" placeholder="Search products" aria-label="Search"
+    aria-describedby="search-addon" />
+    <span class="input-group-text border-0" id="sea">
+      <i class="fas fa-search"></i>
+    </span>
+  </div> -->
+
+
+
+
+
+<div class="container">
+
+    <div class="input-group">
+        <input type="search" id="sea" class="form-control rounded" placeholder="Search products" aria-label="Search"
+        aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="sea">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+
+
+    
+    
+      
+
+
+<span class="category" id="clothing">
+    
+    Clothings
+
+</span><hr>
+
+
+      <!-- <hr>
+      <h4>Clothings</h4>
+      <hr>
+      <br> -->
+
+<div class="wrapper">
+{% for item in items %}
+
+{% if "jacket".casefold() in item.name.casefold() or "T-Shirt" in item.name or "Shirt" in item.name or "Sweatshirt"  in item.name or "Boxer"  in item.name or "Jogger"  in item.name or "Jeans"  in item.name or "Jackets"  in item.name or "Tops"  in item.name or "Dress"  in item.name or "Kurta"  in item.name
+or "Stoles" in item.name or "hoodie" in item.name or  "crop" in item.name or "shirt" in item.name or "Crop" in item.name
+ or "Top" in item.name or "Set" in item.name or "Shorts" in item.name or "Tee" in item.name or "neck" in item.name or "Tops" in item.name %}
+
+
+   
+<div class="card">
+    <a class="imgbtn" href="{{item.link}}" target="_blank"><img src='{{ item.image }}'></a>
+    
+    <div style="padding: 0 5px;" class="prodd">
+        <h6>{{ item.name }}</h6> 
+        Store: {{ item.site_name }} </br>
+        Price: {{ item.price }}
+        
+        <a class="actlinks" href="/delete/{{item.name}}">Remove</a>
+    </div> </div>
+
+
+{% endif %}
+{% endfor %}
+</div>
+
+
+<span class="category">
+    
+    Accessories
+    
+     </span><hr>
+    <div class="wrapper">
+    {% for item in items %}
+    
+    {%if "Bag" in item.name or "Slider" in item.name or "slides" in item.name or "Flip Flop" in item.name or "Backpack"  in item.name or "Notebook"  in item.name or "Socks"  in item.name or "boots" in item.name
+    or "flat" in item.name or "flats" in item.name or "Flat" in item.name or "MUG" in item.name or "BackPack" in  item.name or "Heels" in item.name or "heel" in item.name  %}
+       
+    <div class="card">
+        <a class="imgbtn" href="{{item.link}}" target="_blank"><img src='{{ item.image }}'></a>
+        
+        <div style="padding: 0 5px;" class="prodd">
+            <h6>{{ item.name }}</h6>
+            Store: {{ item.site_name }} </br>
+            Price: {{ item.price }}
+            
+            <a class="actlinks" href="/delete/{{item.name}}">Remove</a>
+        </div> </div>
+    
+    
+
+    {% endif %}
+    {% endfor %}
+    </div>
+    
+
+    
+        
+    <!--<span class="category">
+    
+        Electronic Gadgets
+        
+         </span><hr>
+        <div class="wrapper">
+        {% for item in items %}
+        
+        {%if "Samsung" in item.name or "Cover" in item.name or "cover" in item.name or "Redmi"  in item.name or "Poco"  in item.name or "HP"  in item.name or "Mac" in item.name
+        or "Mobile" in item.name or "Lenovo" in item.name%}
+           
+        <div class="card">
+            <a class="imgbtn" href="{{item.link}}" target="_blank"><img src='{{ item.image }}'></a>
+            
+            <div style="padding: 0 5px;" class="prodd">
+                <h6>{{ item.name }}</h6>
+                Store: {{ item.site_name }} </br>
+                Price: {{ item.price }}
+                
+                <a class="actlinks" href="/delete/{{item.name}}">Remove</a>
+            </div> </div>
+        
+        
+    
+        {% endif %}
+        {% endfor %}
+        </div> -->
+        <span class="category">
+
+        
+            Beauty and Hygeine
+            
+            </span><hr>
+            
+            <div class="wrapper">
+            {% for item in items %}
+            
+            {%if "Face" in item.name or "wash" in item.name or "soap" in item.name or "lip" in item.name  %}
+               
+            <div class="card">
+                <a class="imgbtn" href="{{item.link}}" target="_blank"><img src='{{ item.image }}'></a>
+                
+                <div style="padding: 0 5px;" class="prodd">
+                    <h6>{{ item.name }}</h6>
+                    Store: {{ item.site_name }} </br>
+                    Price: {{ item.price }}
+                    
+                    <a class="actlinks" href="/delete/{{item.name}}">Remove</a>
+                </div> </div>
+            
+            
+        
+            {% endif %}
+            {% endfor %}
+            </div>
+</div>
+
+</div>
+
+<footer>
+    Select any image to go to product page
+</footer>
+
+<script>
+    var search1=document.getElementById("sea");
+search1.addEventListener("input", function(){
+     let inputVal=search1.value
+      let cardT=document.getElementsByClassName("card")
+      Array.from(cardT).forEach(function(element) {
+          let txt=element.getElementsByTagName('h6')[0].innerText.toLowerCase()
+         if (txt.includes(inputVal)) {
+             element.style.display="flex"
+         } else {
+             element.style.display="None"
+
+         }
+    })
+ })
+</script>
+<!-- <script>
+    function myFunction() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
+    }
+    </script> -->
+{% endblock %}
+
+
