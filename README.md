@@ -5,4 +5,4 @@ Frontend: Flask frontend using jinja template.
 Backend: Flask py  
 Database: SQLAlchemy  
 
-Deployment: https://liadd.herokuapp.com/
+
